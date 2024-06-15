@@ -6,32 +6,32 @@ This implementatoion  uses Google's Gemini model to train the RAG model
 the data is converted into chromadb
 
 ## Installation
-1. Clone the repo:
-   git clone https://github.com/dharmateja2810/RAG.git
-   cd RAG
-2.Set up a virtual environment
-   python3 -m venv env
-   source env/bin/activate  # On Windows use `env\Scripts\activate`
-3.Install dependencies:
-  pip install -r requirements.txt
-in model.py os.environ["GEMINI_API_KEY"]= "your_api_key_here" replace with  the API key
-4.Run the project:
-  python app.py
+   1. Clone the repo:
+      git clone https://github.com/dharmateja2810/RAG.git
+      cd RAG
+   2.Set up a virtual environment
+      python3 -m venv env
+      source env/bin/activate  On Windows use `env\Scripts\activate`
+   3.Install dependencies:
+     pip install -r requirements.txt
+   in model.py os.environ["GEMINI_API_KEY"]= "your_api_key_here" replace with  the API key
+   4.Run the project:
+     python app.py
 
 ##usage 
-replace test.pdf with your pdf file 
+   replace test.pdf with your pdf file 
 
 ##Contributing
-Contributions are welcome! Please fork the repository and submit a pull request for review.
+   Contributions are welcome! Please fork the repository and submit a pull request for review.
 
-Fork the repository
-Create a new branch (git checkout -b feature-branch)
-Commit your changes (git commit -m 'Add new feature')
-Push to the branch (git push origin feature-branch)
-Create a new Pull Request
+   Fork the repository
+   Create a new branch (git checkout -b feature-branch)
+   Commit your changes (git commit -m 'Add new feature')
+   Push to the branch (git push origin feature-branch)
+   Create a new Pull Request
 
 ##License
-Distributed under the MIT License. See LICENSE for more information.
+   Distributed under the MIT License. See LICENSE for more information.
 
 ##Contact
-Dharma Teja - dharmanarisetty@gmail.com
+   Dharma Teja - dharmanarisetty@gmail.com
