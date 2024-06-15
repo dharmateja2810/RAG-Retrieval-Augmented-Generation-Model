@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            height: 90%;
+            overflow-y: auto;
+        }
+        textarea {
+            width: 90%;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 50px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .conversation {
+            margin-top: 20px;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 30px;
+            border-radius: 5px;
+            background: #e9ecef;
+            
+        }
+        .prompt {
+            background: #d1ecf1;
+        }
+        .response {
+            background: #f8d7da;
+        }
+        button{
+            height:70px;
+            width: 130px;
+            margin-left: 30px;
+            margin-top: -10px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align: center; font-size: 30px;">RAG MODEL</h2>
+        <textarea id="prompt" placeholder="Enter your prompt here..."></textarea>
+        <button onclick="getResponse()">Submit</button>
+        <div class="conversation" id="conversation"></div>
+    </div>
+    <script>
+        let conversationHistory = [];
+
+        async function getResponse() {
+            const prompt = document.getElementById('prompt').value;
+            const conversationElement = document.getElementById('conversation');
+
+            if (prompt.trim() === "") {
+                alert("Please enter a prompt.");
+                return;
+            }
+
+            try {
+                const response = await fetch('/get_response', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ prompt: prompt }),
+                });
+
+                const data = await response.json();
+
+                // Update conversation history
+                conversationHistory.push({ prompt, response: data.response });
+                displayConversation(conversationElement, conversationHistory);
+
+                // Clear the textarea
+                document.getElementById('prompt').value = "";
+            } catch (error) {
+                console.error('Error fetching response:', error);
+            }
+        }
+
+        function displayConversation(conversationElement, conversationHistory) {
+            conversationElement.innerHTML = "";
+            conversationHistory.forEach(convo => {
+                const promptDiv = document.createElement('div');
+                promptDiv.className = 'message prompt';
+                promptDiv.innerText = `Prompt: ${convo.prompt}`;
+                promptDiv.style.fontSize = "25px";
+                const responseDiv = document.createElement('div');
+                responseDiv.className = 'message response';
+                responseDiv.innerText = `Response: ${convo.response}`;
+                responseDiv.style.fontSize = "25px";
+                conversationElement.appendChild(promptDiv);
+                conversationElement.appendChild(responseDiv);
+            });
+        }
+    </script>
+</body>
+</html>
