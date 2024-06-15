@@ -18,10 +18,10 @@ the data is converted into chromadb
    4.Run the project:  
      python app.py  
 
-##usage   
+## usage   
    replace test.pdf with your pdf file   
   
-##Contributing  
+## Contributing  
    Contributions are welcome! Please fork the repository and submit a pull request for review.  
 
    Fork the repository  
@@ -30,8 +30,8 @@ the data is converted into chromadb
    Push to the branch (git push origin feature-branch)  
    Create a new Pull Request  
 
-##License  
+## License  
    Distributed under the MIT License. See LICENSE for more information.  
 
-##Contact  
+## Contact  
    Dharma Teja - dharmanarisetty@gmail.com  
