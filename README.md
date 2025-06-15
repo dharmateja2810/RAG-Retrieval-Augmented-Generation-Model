@@ -33,8 +33,5 @@ Check out the [Documentation](https://drive.google.com/file/d/18uzzuKolIkDei0wcg
    Push to the branch (git push origin feature-branch)  
    Create a new Pull Request  
 
-## License  
-   Distributed under the MIT License. See LICENSE for more information.  
-
 ## Contact  
    Dharma Teja - dharmanarisetty@gmail.com  
