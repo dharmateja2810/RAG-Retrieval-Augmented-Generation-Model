@@ -5,6 +5,9 @@ specific context. To solve this issue RAG models are used , a rag  model is trai
 This implementatoion  uses Google's Gemini model to train the RAG model  
 the data is converted into chromadb  
 
+## Documentation
+Check out the [Documentation](https://drive.google.com/file/d/18uzzuKolIkDei0wcgLO_0pkPn8SfnSSc/view?usp=sharing) for further details.
+
 ## Installation  
    1. Clone the repo:  
       git clone https://github.com/dharmateja2810/RAG.git  
